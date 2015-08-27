@@ -1,12 +1,8 @@
 # To Do List
 
-## Doing
-
 - Add _CMake_ build system
-
-## To Do
-
 - Reorganize project
+  - Standardize file names **(DOING)**
   - Build each part into **libraries**
   - Gather all tests in **tests** folder
   - Move **inputs** and **outputs** folders from root dir
