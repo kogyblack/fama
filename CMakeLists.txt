@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 project("Framework de Aprendizado de Máquina")
 
 # For YouCompleteMe integration
-#set(CMAKE_EXPORT_COMPILE_COMMANDS "ON")
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
 # Set C++11 as standard compilation
 #add_definitions("-std=c++11")
@@ -21,12 +21,21 @@ set(CMAKE_DEBUG_POSTFIX -d)
 #add_subdirectory(treinador)
 #add_subdirectory(classificador)
 
+
 set(BASE_SRCS
   corpus/corpus.cpp
   avaliador/avaliador.cpp
   classificador/classificador.cpp
   treinador/treinador.cpp)
 add_library(base ${BASE_SRCS})
+
+set(AVALIADOR_SRCS
+  avaliador/avaliador_acuracia.cpp
+  avaliador/avaliador_acuracia_respostas_adicionais.cpp
+  avaliador/avaliador_diferenca.cpp
+  avaliador/avaliadormatrizconfusao.cpp)
+add_library(base-avaliador ${AVALIADOR_SRCS})
+target_link_libraries(base-avaliador base)
 
 #add_subdirectory(C50)
 #add_subdirectory(id3)
